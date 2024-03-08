@@ -1,6 +1,6 @@
 package dev.iesfranciscodelosrios;
 
-import dev.iesfranciscodelosrios.model.BankAccount;
+import dev.iesfranciscodelosrios.atm_client.model.BankAccount;
 import dev.iesfranciscodelosrios.model.BankAccountHandler;
 
 import java.io.IOException;

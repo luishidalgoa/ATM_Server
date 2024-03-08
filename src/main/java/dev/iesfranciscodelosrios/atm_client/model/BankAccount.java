@@ -1,8 +1,9 @@
-package dev.iesfranciscodelosrios.model;
+package dev.iesfranciscodelosrios.atm_client.model;
 
-import java.net.Socket;
+import java.io.Serializable;
+import java.util.Objects;
 
-public class BankAccount {
+public class BankAccount implements Serializable {
 
     public String name;
     public String surname;
@@ -11,16 +12,17 @@ public class BankAccount {
     public int IBAN;
     public int Pin;
 
-    public BankAccount(String name, String surname, String dni, double balance, int IBAN, int pin) {
+    public BankAccount(String name, String surname, String dni, double balance, int IBAN, int Pin) {
         this.name = name;
         this.surname = surname;
         this.dni = dni;
         this.balance = balance;
         this.IBAN = IBAN;
-        Pin = pin;
+        this.Pin = Pin;
     }
 
     public BankAccount() {
+
     }
 
     public String getName() {
@@ -69,6 +71,25 @@ public class BankAccount {
 
     public void setPin(int pin) {
         Pin = pin;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankAccount that = (BankAccount) o;
+        return Double.compare(balance, that.balance) == 0 && IBAN == that.IBAN && Pin == that.Pin && Objects.equals(name, that.name) && Objects.equals(surname, that.surname) && Objects.equals(dni, that.dni);
+    }
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", dni='" + dni + '\'' +
+                ", balance=" + balance +
+                ", IBAN=" + IBAN +
+                ", Pin=" + Pin +
+                '}';
     }
 }
 
