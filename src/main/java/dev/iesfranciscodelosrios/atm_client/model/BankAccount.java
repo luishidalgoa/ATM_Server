@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class BankAccount implements Serializable {
 
+    // Atributos de la cuenta bancaria
     public String name;
     public String surname;
     public String dni;
@@ -12,6 +13,7 @@ public class BankAccount implements Serializable {
     public int IBAN;
     public int Pin;
 
+    // Constructor con parámetros
     public BankAccount(String name, String surname, String dni, double balance, int IBAN, int Pin) {
         this.name = name;
         this.surname = surname;
@@ -21,10 +23,11 @@ public class BankAccount implements Serializable {
         this.Pin = Pin;
     }
 
+    // Constructor sin parámetros
     public BankAccount() {
-
     }
 
+    // Métodos getter y setter para los atributos
     public String getName() {
         return name;
     }
@@ -73,6 +76,7 @@ public class BankAccount implements Serializable {
         Pin = pin;
     }
 
+    // Métodos equals y toString
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,6 +84,7 @@ public class BankAccount implements Serializable {
         BankAccount that = (BankAccount) o;
         return Double.compare(balance, that.balance) == 0 && IBAN == that.IBAN && Pin == that.Pin && Objects.equals(name, that.name) && Objects.equals(surname, that.surname) && Objects.equals(dni, that.dni);
     }
+
     @Override
     public String toString() {
         return "BankAccount{" +
@@ -92,4 +97,3 @@ public class BankAccount implements Serializable {
                 '}';
     }
 }
-
